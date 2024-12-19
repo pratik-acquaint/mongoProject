@@ -14,7 +14,7 @@ app.use("/api/v1", Router);
 mongoose
   .connect(process.env.END_POINT)
   .then(() => {
-    console.log("Database Connection Establise Successfully ", new Date());
+    console.log("Database Connection Establise Successfully ----->", new Date());
     app.listen(process.env.PORT, () => {
       console.log(`Server start on PORT ${process.env.PORT}`);
     });

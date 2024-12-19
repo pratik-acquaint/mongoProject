@@ -5,7 +5,7 @@ const Router = express.Router();
 const authController = require("../controller/authController");
 
 //auth-routes
-Router.get("/register", authController.register);
+Router.post("/register", authController.register);
 
 //exporting Routers
 module.exports = Router;

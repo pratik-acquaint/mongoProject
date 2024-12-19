@@ -6,12 +6,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    gender: {
+    age: {
       type: Number,
       required: false,
       default: null,
     },
-    contact: {
+    gender: {
       type: Number,
       required: false,
       default: null,
