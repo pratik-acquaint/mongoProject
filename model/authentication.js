@@ -25,8 +25,9 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Password must be provided"],
     },
     userType: {
-      type: Number,
+      type: String,
       required: [true, "Missing User Type"],
+      enum: ["customer", "user", "admin"],
     },
     isDeleted: {
       type: Number,
