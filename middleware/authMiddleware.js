@@ -1,33 +1,25 @@
 const Joi = require("joi");
 const jwtToken = require("jsonwebtoken");
 require("dotenv").config();
-
 const jwt = require("jsonwebtoken");
+
 
 const checkAuth = (req, res, next) => {
   try {
-    console.log("request---------->", req.headers);
+    // console.log("request---------->", req.headers);
 
     // Extract token from the Authorization header
     const authHeader = req.headers.token;
     if (!authHeader) {
       return res
         .status(401)
-        .json({ message: "Authorization token is required" });
+        .json({ message: "auth token is required" });
     }
-    // const token = authHeader.split(' ')[1]; // Remove 'Bearer ' prefix
-    const token = authHeader; // Remove 'Bearer ' prefix
-    // console.log("Extracted Token:", token);
-
-    // Verify the token
+    const token = authHeader;
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
 
-    console.log("Decoded Token:", decoded);
-
-    // Attach decoded information to the req object
+    // console.log("Decoded Token:", decoded);
     req.user = decoded;
-
-    // Proceed to the next middleware or route handler
     next();
   } catch (error) {
     console.error("Authentication error:", error.message);

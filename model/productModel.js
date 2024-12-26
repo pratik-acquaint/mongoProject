@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const ProdcutSchema = new mongoose.Schema(
@@ -18,10 +19,19 @@ const ProdcutSchema = new mongoose.Schema(
       type: Date,
       require: true,
     },
+    price:{
+      type:Number,
+      require:true
+    },
     isDeleted: {
       type: Number,
       default: 0,
     },
+    weight:{
+      type:Number,
+      require:true
+    }
+
   },
   { timestamps: true }
 );
