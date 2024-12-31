@@ -30,6 +30,10 @@ const ProdcutSchema = new mongoose.Schema(
     weight:{
       type:Number,
       require:true
+    },
+    weight1:{
+      type:Number,
+      require:true
     }
 
   },
