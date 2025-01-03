@@ -4,12 +4,21 @@ require("dotenv").config();
 
 const bcrypt = require("bcrypt");
 let round = 10;
+let rawPassword = "Pratik@123";
 
-// bcrypt.hash('Admin@123', round, function (err, hash) {
-//   console.log("Hashed password------->", hash);
-// });
-let hashpassword = bcrypt.hash('admin', round);
-console.log("hashpassword--------->", hashpassword);
+async function createPass() {
+  //create hash Password using bcrypt
+  let hashpassword = await bcrypt.hash(rawPassword, round);
+  console.log("hashpassword   ---------->", hashpassword);
+
+  //compare Password
+  let comparePassword = await bcrypt.compare(rawPassword, hashpassword);
+  console.log("compare Status ---------->", comparePassword);
+}
+createPass();
+
+
+
 // const migrateUserType = async () => {
 //   try {
 //     // Connect to your MongoDB database
