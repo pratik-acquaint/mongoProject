@@ -22,4 +22,5 @@ COPY . .
 #run on this PORT
 EXPOSE 4005
 
+#commad to run docker image 
 CMD [ "npm" ,"start"]
